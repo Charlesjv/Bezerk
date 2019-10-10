@@ -11,9 +11,16 @@ import GameplayKit
 
 class GameScene: SKScene,SKPhysicsContactDelegate {
     
+    var robot = SKSpriteNode()
+    
     override func didMove(to view: SKView) {
         
         self.physicsWorld.contactDelegate = self
+        
+        
+        robot = self.childNode(withName: "player") as! SKSpriteNode
+        
+        
     }
         
     
@@ -41,6 +48,23 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         print("Player touched:\(nodeTouched)")
         
         
+        
+        if(nodeTouched == "up"){
+            
+            robot.position.y = robot.position.y + 5
+            
+            
+            
+        }else if (nodeTouched == "down"){
+            robot.position.y = robot.position.y - 5
+            
+        }else if (nodeTouched == "left"){
+            robot.position.x = robot.position.x - 5
+            
+        }else if (nodeTouched == "right"){
+            robot.position.x = robot.position.x + 5
+            
+        }
         
         
         // FIGURE OUT WHAT NODE THE MOUSE IS PUSHING
