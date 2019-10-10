@@ -13,6 +13,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     var robot = SKSpriteNode()
     
+    let PLAYER_SPEED:CGFloat = 10
+    
     override func didMove(to view: SKView) {
         
         self.physicsWorld.contactDelegate = self
@@ -51,18 +53,18 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         if(nodeTouched == "up"){
             
-            robot.position.y = robot.position.y + 5
+            robot.position.y = robot.position.y + PLAYER_SPEED
             
             
             
         }else if (nodeTouched == "down"){
-            robot.position.y = robot.position.y - 5
+            robot.position.y = robot.position.y - PLAYER_SPEED
             
         }else if (nodeTouched == "left"){
-            robot.position.x = robot.position.x - 5
+            robot.position.x = robot.position.x - PLAYER_SPEED
             
         }else if (nodeTouched == "right"){
-            robot.position.x = robot.position.x + 5
+            robot.position.x = robot.position.x + PLAYER_SPEED
             
         }
         
