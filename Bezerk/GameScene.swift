@@ -31,8 +31,18 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
 }
 
     func didBegin(_ contact: SKPhysicsContact) {
+        print("COLLISION DETECTED")
         
+        let nodeA = contact.bodyA.node
+         let nodeB = contact.bodyB.node
         
+        if(nodeA == nil || nodeB == nil){
+            return
+        }
+
+        
+        print("Sprite 1: \(nodeA!.name)")
+        print("Sprite 2: \(nodeB!.name)")
 }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -54,8 +64,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         if(nodeTouched == "up"){
             
             robot.position.y = robot.position.y + PLAYER_SPEED
-            
-            
             
         }else if (nodeTouched == "down"){
             robot.position.y = robot.position.y - PLAYER_SPEED
