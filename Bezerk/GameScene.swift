@@ -25,4 +25,26 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         
 }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // GET THE MOUSE
+        
+        let mouseTouch = touches.first
+        
+        if(mouseTouch == nil){
+            return
+        }
+        
+        
+        let location = mouseTouch!.location(in: self)
+        let nodeTouched = atPoint(location).name
+        print("Player touched:\(nodeTouched)")
+        
+        
+        
+        
+        // FIGURE OUT WHAT NODE THE MOUSE IS PUSHING
+        
+        
+    }
 }
