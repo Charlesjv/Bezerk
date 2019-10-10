@@ -22,7 +22,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
 }
 
     func didBegin(_ contact: SKPhysicsContact) {
-        <#code#>
+        
         
 }
 }
