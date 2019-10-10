@@ -52,6 +52,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         print("Sprite 1: \(nodeA!.name)")
         print("Sprite 2: \(nodeB!.name)")
+        
+        
+        if(nodeA!.name == "enemy"  && nodeB!.name == "player"){
+            robot.position = CGPoint(x:96,y:220)
+        }
+        if(nodeA!.name == "exit" && nodeB!.name == "player"){
+            print("GAME WIN")
+        }
 }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
