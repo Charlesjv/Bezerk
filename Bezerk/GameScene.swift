@@ -15,6 +15,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     let PLAYER_SPEED:CGFloat = 10
     
+    var enemyy:[SKSpriteNode] = []
+    
     override func didMove(to view: SKView) {
         
         self.physicsWorld.contactDelegate = self
@@ -22,7 +24,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         robot = self.childNode(withName: "player") as! SKSpriteNode
         
+      // get all your enemy sprites
         
+        let moveAction = SKAction.moveBy(x: -400, y: 0, duration: 10)
+        
+        self.enumerateChildNodes(withName: "enemy") { (node, stop) in
+            let enemy = node as! SKSpriteNode
+            enemy.run(moveAction)
+        }
     }
         
     
